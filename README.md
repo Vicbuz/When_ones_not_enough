@@ -1,4 +1,4 @@
-# When_ones_not_enough
+# When one's not enough
 Code used in paper:  When one’s not enough: Colony pool-seq outperforms individual-based methods for assessing introgression in Apis mellifera subspecies
 
 https://www.mdpi.com/2075-4450/14/5/421 
