@@ -6,7 +6,7 @@ https://www.mdpi.com/2075-4450/14/5/421
 All code is written in python 3.
 
 ### SNP Array format to ped file
-csv_to_ped.py was used to convert the SNP array raw data into a ped file for use with ADMIXTURE. The SNP Array data was recieved in a csv format. The use of this function in the script is like so:
+The SNP Array data was recieved in a csv format. csv_to_ped.py was used to convert the SNP array raw data into a ped file for use with ADMIXTURE. The use of this function in the script is like so:
 
 ```
 iPLEX_to_ped('/path/to/your/csv.csv', '/out/path/to/your/new/ped.txt')
@@ -18,7 +18,7 @@ vcf_to_colony_allele_frequencies.py takes an input vcf file created by GATK, cal
 ```bash
 python vcf_to_colony_allele_frequencies.py file_in file_out snp_num
 ```
-Where file_in is your filtered vcf file, file_out will be the resulting allele freuqencie table and the snp_num is the number of SNPs in your filtered vcf input, this is used to as a sense check against the resulting the length of the allele frequencie table . The resulting table will be a data frame with sample names as headers and rows of SNPs containing allele frequecnies.
+Where file_in is your filtered vcf file, file_out will be the resulting allele freuqencie table and the snp_num is the number of SNPs in your filtered vcf input. The total number of SNPs is used to as a sense check against the resulting the length of the allele frequencie table. The resulting table will be a data frame with sample names as headers and rows of SNPs containing allele frequecnies.
 
 ### Perform ABBA BABA
 
