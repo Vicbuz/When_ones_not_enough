@@ -22,6 +22,6 @@ Where ```file_in``` is your filtered vcf file, ```file_out``` will be the result
 
 abba_baba_colony.py perfroms D statistics, significance testing and f statistics on colony allele frequencies data frame obtained from a vcf file format (which can be created by using the vcf_to_colony_allele_frequencies.py). The input data frame for which needs to be sample names as a header and rows of SNPs.
 
-The top of the code requires you to place your samples for testing into the lists. Then at the bottom uncomment and comment out the loop procedures you wish to perform. 
+The top of the code requires you to place your samples for testing into the lists. Then at the bottom of the code, uncomment the loop procedures you wish to perform. 
 
 WARNING, this code can produce a lot of out files and take a long time to run as each colony is tested multiple times. Work is underway to optimise this code and prevent the long running time and multiple printouts. At present it is here for the use of others while that process is ongoing. 
