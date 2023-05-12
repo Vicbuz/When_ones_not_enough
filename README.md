@@ -4,7 +4,11 @@ Code used in paper:  When one’s not enough: Colony pool-seq outperforms indivi
 https://www.mdpi.com/2075-4450/14/5/421 
 
 ### SNP Array format to ped file
-csv_to_ped.py was used to convert the SNP array raw data into a ped file for use with ADMIXTURE.
+csv_to_ped.py was used to convert the SNP array raw data into a ped file for use with ADMIXTURE. The SNP Array data was recieved in a csv format. The use of this function in the script is like so:
+
+```
+iPLEX_to_ped('/path/to/your/csv.csv', '/out/path/to/your/new/ped.txt')
+```
 
 ### Obtain colony allele frequecnies from VCF
 
