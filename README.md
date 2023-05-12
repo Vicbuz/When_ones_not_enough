@@ -18,7 +18,7 @@ vcf_to_colony_allele_frequencies.py takes an input vcf file created by GATK, cal
 ```bash
 python vcf_to_colony_allele_frequencies.py file_in file_out snp_num
 ```
-Where file_in is your filtered vcf file, file_out will be the resulting allele freuqencie table and the snp_num is the number of SNPs in your filtered vcf input. The total number of SNPs is used to as a sense check against the resulting the length of the allele frequencie table. The resulting table will be a data frame with sample names as headers and rows of SNPs containing allele frequecnies.
+Where file_in is your filtered vcf file, file_out will be the resulting allele freuqencie table and the snp_num is the number of SNPs in your filtered vcf input. The total number of SNPs is used to as a sense check against the resulting the length of the allele frequency table. The resulting table will be a data frame with sample names as headers and rows of SNPs containing allele frequecnies.
 
 ### Perform ABBA BABA
 
