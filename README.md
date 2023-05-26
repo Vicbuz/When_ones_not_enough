@@ -14,9 +14,9 @@ iPLEX_to_ped('/path/to/your/csv.csv', '/out/path/to/your/new/ped.txt')
 
 vcf_to_colony_allele_frequencies.py takes an input vcf file created by GATK, calculates allele frequencies from the AD and DP fields in the info column and outputs a large dataframe of allele frequencies for all samples. This scrip is envoked by:
 ```bash
-python vcf_to_colony_allele_frequencies.py file_in file_out snp_num
+python vcf_to_colony_allele_frequencies.py file_in.vcf file_out.txt snp_num
 ```
-Where ```file_in``` is your filtered vcf file, ```file_out``` will be the resulting allele freuqencie table and the ```snp_num``` is the number of SNPs in your filtered vcf input. The total number of SNPs is used to as a sense check against the resulting the length of the allele frequency table. The resulting table will be a data frame with sample names as headers and rows of SNPs containing allele frequecnies.
+Where ```file_in.vcf``` is your filtered vcf file, ```file_out.txt``` will be the resulting allele freuqencie table and the ```snp_num``` is the number of SNPs in your filtered vcf input. The total number of SNPs is used to as a sense check against the resulting the length of the allele frequency table. The resulting table will be a data frame with sample names as headers and rows of SNPs containing allele frequecnies.
 
 ### Perform ABBA BABA
 
