@@ -14,7 +14,7 @@ vcftools --vcf WGS_work/WGS_RAW_nooutgroup_SNPs_gatkfiltered_depth10_65_alleles2
 
 #plink doesn't accept chromosome numbers must be renamed i.e. chr1 
 
-bcftools annotate --rename-chrs WGS_work/chr_rename_map.txt /home/vbuswell/WGS_work/wgs_1kb_british_isles_only.recode.vcf \
+bcftools annotate --rename-chrs WGS_work/chr_rename_map.txt WGS_work/wgs_1kb_british_isles_only.recode.vcf \
 -Ov -o WGS_work/chr_edited_WGS_1kb_thinned.vcf
 
 #make a set of plink files for admixture:
