@@ -1,4 +1,4 @@
-#Bioinformtics workflow for WGS processing.
+# Bioinformtics workflow for WGS processing.
 
 This workflow is the detailed methods for the paper Buswell et al 2024, Whole genome analyses of introgression in British and Irish Apis mellifera mellifera, DOI incoming.
 
@@ -14,7 +14,7 @@ GATK 4.1.9.0
 Notes: follows the GATK4 Best Practice Workflow, using GATK version 4.1.9.0 and was written in 2021. GATK advice is that recommendations evolve in step with the rapid pace of technological and methodological innovation in the field of genomics. i.e. best practices change with time, please always check the up to date best practices. 
 
 
-##Trimmomatic
+## Trimmomatic
 
 Files were trimmed using Trimmomatic a loop for every forward and reverse read in a directory.
 ```
@@ -25,13 +25,13 @@ IFS=. components=($a)
 java -jar trimmomatic-0.39.jar PE -phred33 ${components[0]}.1.fq.gz ${components[0]}.2.fq.gz WGS_work/WGS_trimmo_paired/$(basename $components).1.fq.gz WGS_work/WGS_trimmo_unpaired/$(basename $components).1.fq.gz /WGS_work/WGS_trimmo_paired/$(basename $components).2.fq.gz /WGS_trimmo_unpaired/$(basename $components).2.fq.gz  LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:50
 done
 ```
-##BWA MEM align to reference genome:
+## BWA MEM align to reference genome:
 
 Samples were aligned to the genome using bwa in parallel, the example here is for each sample. See [bwa manual for more details](https://bio-bwa.sourceforge.net/bwa.shtml)
 ```
 ./bwa mem GCF_003254395.2_Amel_HAv3.1_genomic_refseq.fna -M -c 1 /trimmed_paired/116.1.fq.gz /trimmed_paired/116.2.fq.gz > /align_trimmed_paired/116.sam
 ```
-##Samtools q20 :
+## Samtools q20 :
 
 Samtools was used in a loop to filter based on mapping quality. See [Samtools manual for more details](http://www.htslib.org/doc/samtools.html)
 ```
@@ -42,7 +42,7 @@ do
 done
 ```
 
-##Samtools sort
+## Samtools sort
 
 Samtools was used to sort by genomic coordinates and output as a bam file. See [Samtools manual for more details](http://www.htslib.org/doc/samtools.html)
 ```
@@ -52,14 +52,14 @@ do
 	samtools sort -O bam -o /WGS_work/WGS_trimmo_paired_aligned_q20_sort_K/$(basename "$f")${filename##*.} $f 
 done;
 ```
-##Samtools index
+## Samtools index
 
 Samtools was used to index the genomic coordinates for fast random access. See [Samtools manual for more details](http://www.htslib.org/doc/samtools.html)
 
 ```
 samtools index -b /WGS_work/WGS_trimmo_paired_aligned_q20_sort_RG_K/116_RG.bam \
 ```
-##Picard read group
+## Picard read group
 
 PICARD tools (available as part of the GATK package) was used to edit read groups per sample. For options and guidance see [GATK AddOrReplaceReadGroups (Picard)](https://gatk.broadinstitute.org/hc/en-us/articles/360037226472-AddOrReplaceReadGroups-Picard)
 ```
@@ -72,7 +72,7 @@ RGPL=ILLUMINA \
 RGPU=unit1 \
 RGSM=116 
 ```
-##GATK read in bam to g.vcf
+## GATK read in bam to g.vcf
 
 Bam files were then read into GATK to create a per sample g.vcf. For more details and options see [GATK HaplotypeCaller](https://gatk.broadinstitute.org/hc/en-us/articles/360050814612-HaplotypeCaller)
 ```
@@ -82,7 +82,7 @@ Bam files were then read into GATK to create a per sample g.vcf. For more detail
 -O /WGS_work/gvcfs/gvcfs_K/116.g.vcf \
 -ERC GVCF \
 ```
-##GATK intermediate database 
+## GATK intermediate database 
 This was a run to import single-sample GVCFs into GenomicsDB before joint genotyping. This was run per chromosome and the example here is chromosome number 8. For more details and options see [GenomicsDBImport](https://gatk.broadinstitute.org/hc/en-us/articles/360051305591-GenomicsDBImport)
 ```
 ./gatk GenomicsDBImport \
@@ -91,7 +91,7 @@ This was a run to import single-sample GVCFs into GenomicsDB before joint genoty
 --sample-name-map WGS_work/gvcfs/gvcfWGS.sample_map \
 --tmp-dir WGS_work/gvcfs/tmp 
 ```
-##GATK GenotypeGVCFs 
+## GATK GenotypeGVCFs 
 
 From the database a vcf is produced containing all files per chromosome (example here is chromosome number 8). For more detail see [GenotypeGVCFs](https://gatk.broadinstitute.org/hc/en-us/articles/360050816072-GenotypeGVCFs)
 ```
@@ -100,7 +100,7 @@ From the database a vcf is produced containing all files per chromosome (example
 -V gendb:///WGS_work/gvcfs/genomicsdb_eight \
 -O WGS_work/WGSchr8.vcf.gz 
 ```
-##GATK Gathergvcfs
+## GATK Gathergvcfs
 
 This step gathers all chromosomes into one vcf. For more detail see [GatherVcfs (Picard) ](https://gatk.broadinstitute.org/hc/en-us/articles/360050814232-GatherVcfs-Picard)
 ```
@@ -123,7 +123,7 @@ I= WGS_work/WGSchr15.vcf.gz \
 I= WGS_work/WGSchr16.vcf.gz \
 O= WGS_work/WGS_RAW_nooutgroup.vcf
 ```
-##GATK SelectVariants 
+## GATK SelectVariants 
 
 Select variant sites and SNPs for downstream work. For more guidance see [GATK SelectVariants](https://gatk.broadinstitute.org/hc/en-us/articles/360051305531-SelectVariants)
 ```
@@ -135,7 +135,7 @@ cd programmes/gatk-4.2.0.0/
 --exclude-non-variants true \
 -O WGS_work/WGS_RAW_nooutgroup_SNPs.vcf
 ```
-#GATK VariantFiltration
+# GATK VariantFiltration
 
 Hard-filtering variant calls based on certain criteria using the GATK recommended thresholds. For more detail see [VariantFiltration](https://gatk.broadinstitute.org/hc/en-us/articles/360050815032-VariantFiltration)
 ```
@@ -151,7 +151,7 @@ Hard-filtering variant calls based on certain criteria using the GATK recommende
 -O WGS_work/WGS_RAW_nooutgroup_SNPs_gatkfiltered.vcf
 ```
 
-##vctools depth
+## vctools depth
 
 Filter out sites with excessive depth indicative of repeat regions. Get report from --site-depth and visualise in R or python to make informed decision. 
 ```
@@ -166,7 +166,7 @@ vcftools --vcf WGS_work/WGS_RAW_nooutgroup_SNPs_gatkfiltered.vcf --min-alleles 2
 --min-meanDP 10 \
 --recode --recode-INFO-all --out WGS_work/WGS_RAW_nooutgroup_SNPs_gatkfiltered_depth10_65_alleles2
 ```
-##vcftools missingness
+## vcftools missingness
 
 To allow comparison across samples with ADMIXTURE, genotypes need to be in 90% of samples
 ```
