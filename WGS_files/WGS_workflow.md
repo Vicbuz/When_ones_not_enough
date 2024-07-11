@@ -195,4 +195,46 @@ vcftools --vcf WGS_work/WGS_RAW_nooutgroup_SNPs_gatkfiltered_depth10_65_alleles2
 --remove WGS_work/WGSto_be_rmv_80.txt \
 --recode --recode-INFO-all --out WGS_work/WGS_RAW_nooutgroup_SNPs_gatkfiltered_depth10_65_alleles2_maxmissing90_indvidmissing80
 ```
+## Filter samples and thin data
 
+code will remove the buckfast samples and replicated that are not needed in final analysis
+```
+vcftools --vcf /home/vbuswell/WGS_work/WGS_RAW_nooutgroup_SNPs_gatkfiltered_depth10_65_alleles2_maxmissing90_indvidmissing80.recode.vcf \
+--remove /home/vbuswell/WGS_work/rep_buck.txt \
+--recode --recode-INFO-all --out /home/vbuswell/WGS_work/WGS_RAW_nooutgroup_SNPs_gatkfiltered_depth10_65_alleles2_maxmissing90_indvidmissing80_noreps_nobuck
+```
+This command will arbitary thin the data 1kb apart. 
+
+vcftools --vcf /home/vbuswell/WGS_work/WGS_RAW_nooutgroup_SNPs_gatkfiltered_depth10_65_alleles2_maxmissing90_indvidmissing80_noreps_nobuck.recode.vcf \
+--thin 1000 \
+--recode --recode-INFO-all --out /home/vbuswell/WGS_work/wgs_1kb_british_isles_only.recode.vcf
+
+## Plink rename files
+
+Plink doesn't accept chromosome numbers these must be renamed i.e. chr1 this was performed with bcftools.
+```
+bcftools annotate --rename-chrs /home/vbuswell/WGS_work/chr_rename_map.txt /home/vbuswell/WGS_work/wgs_1kb_british_isles_only.recode.vcf \
+-Ov -o /home/vbuswell/WGS_work/chr_edited_WGS_1kb_thinned.vcf
+```
+## Make plink files
+
+make a set of plink files for admixture:
+```
+vcftools --vcf /home/vbuswell/WGS_work/chr_edited_WGS_1kb_thinned.vcf --plink --out /home/vbuswell/WGS_work/WGS_1kb_thinned
+```
+
+make a bed file for admixture
+
+plink --file /home/vbuswell/WGS_work/WGS_1kb_thinned  --make-bed --out /home/vbuswell/WGS_work/plink_final_filtered_WGS_1kb_thinned --chr-set 32 no-xy --allow-extra-chr
+
+## ADMIXTURE 
+
+Run admxiture from K=1 to K=10 and report the cv values to investigate the most appropriate Q value. 
+
+```
+for K in 1 2 3 4 5 6 7 8 9 10; \
+do ./admixture --cv /home/vbuswell/WGS_work/plink_final_filtered_WGS_1kb_thinned.bed $K | tee log${K}.out;  #this will crossvalidate K to indicate the most appropriate K for the data
+done
+
+grep -h CV log*.out
+```
