@@ -204,11 +204,11 @@ vcftools --vcf /home/vbuswell/WGS_work/WGS_RAW_nooutgroup_SNPs_gatkfiltered_dept
 --recode --recode-INFO-all --out /home/vbuswell/WGS_work/WGS_RAW_nooutgroup_SNPs_gatkfiltered_depth10_65_alleles2_maxmissing90_indvidmissing80_noreps_nobuck
 ```
 This command will arbitary thin the data 1kb apart. 
-
+```
 vcftools --vcf /home/vbuswell/WGS_work/WGS_RAW_nooutgroup_SNPs_gatkfiltered_depth10_65_alleles2_maxmissing90_indvidmissing80_noreps_nobuck.recode.vcf \
 --thin 1000 \
 --recode --recode-INFO-all --out /home/vbuswell/WGS_work/wgs_1kb_british_isles_only.recode.vcf
-
+```
 ## Plink rename files
 
 Plink doesn't accept chromosome naming convention of our data, these were therefore renamed.
