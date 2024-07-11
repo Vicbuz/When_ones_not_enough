@@ -211,7 +211,7 @@ vcftools --vcf /home/vbuswell/WGS_work/WGS_RAW_nooutgroup_SNPs_gatkfiltered_dept
 
 ## Plink rename files
 
-Plink doesn't accept chromosome numbers these must be renamed i.e. chr1 this was performed with bcftools.
+Plink doesn't accept chromosome naming convention of our data, these were therefore renamed.
 ```
 bcftools annotate --rename-chrs /home/vbuswell/WGS_work/chr_rename_map.txt /home/vbuswell/WGS_work/wgs_1kb_british_isles_only.recode.vcf \
 -Ov -o /home/vbuswell/WGS_work/chr_edited_WGS_1kb_thinned.vcf
