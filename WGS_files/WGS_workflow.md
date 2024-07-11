@@ -13,6 +13,9 @@ GATK 4.1.9.0
 
 Notes: follows the GATK4 Best Practice Workflow, using GATK version 4.1.9.0 and was written in 2021. GATK advice is that recommendations evolve in step with the rapid pace of technological and methodological innovation in the field of genomics. i.e. best practices change with time, please always check the up to date best practices. 
 
+Please note if you use any of the above tools you must cite the papers and version of those tools. 
+
+If you use any custom python code from this repository, in the spirit of open science you may do so freely. We request you simply please cite the paper it was originally used in: Buswell et al 2023 doi or Buswell et al 2024 doi
 
 ## Trimmomatic
 
