@@ -228,11 +228,11 @@ plink --file /home/vbuswell/WGS_work/WGS_1kb_thinned  --make-bed --out /home/vbu
 ```
 ## ADMIXTURE 
 
-Run admxiture from K=1 to K=10 and report the cv values to investigate the most appropriate Q value. 
+Run admxiture from K=1 to K=10 and cross validate K to indicate the most appropriate K for the data
 
 ```
 for K in 1 2 3 4 5 6 7 8 9 10; \
-do ./admixture --cv /home/vbuswell/WGS_work/plink_final_filtered_WGS_1kb_thinned.bed $K | tee log${K}.out;  #this will crossvalidate K to indicate the most appropriate K for the data
+do ./admixture --cv /home/vbuswell/WGS_work/plink_final_filtered_WGS_1kb_thinned.bed $K | tee log${K}.out;  
 done
 
 grep -h CV log*.out
