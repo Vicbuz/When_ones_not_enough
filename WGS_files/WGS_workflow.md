@@ -12,7 +12,7 @@ Samtools v. 1.10\
 GATK 4.1.9.0\
 vcftools v. 0.1.14\
 Plink v. 1.07\
-ADMIXTURE v. 1.3.0\
+ADMIXTURE v. 1.3.0
 
 Notes: follows the GATK4 Best Practice Workflow, using GATK version 4.1.9.0 and was written in 2021. GATK advice is that recommendations evolve in step with the rapid pace of technological and methodological innovation in the field of genomics. i.e. best practices change with time, please always check the up to date best practices. 
 
