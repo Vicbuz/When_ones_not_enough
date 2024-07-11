@@ -2,7 +2,7 @@
 """
 Created on Wed Jun  9 10:57:47 2021
 
-@author: user
+@author: Victoria Buswell
 """
 import sys
 
@@ -18,10 +18,6 @@ def imiss_filter(filein, missing, fileout):
             fileout.write(f'{item[0]}\n')
     
     
-
-
-#imiss_filter('C:/Users/user/Desktop/Filter_colony/imiss_test_9_10_43.txt', 0.9,'C:/Users/user/Desktop/Filter_colony/test_imiss_filter.txt')
-
 filein=str(sys.argv[1])
 missing= float(sys.argv[2])
 fileout=str(sys.argv[3])
