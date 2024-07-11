@@ -16,7 +16,7 @@ ADMIXTURE v. 1.3.0
 
 Notes: follows the GATK4 Best Practice Workflow, using GATK version 4.1.9.0 and was written in 2021. GATK advice is that recommendations evolve in step with the rapid pace of technological and methodological innovation in the field of genomics. i.e. best practices change with time, please always check the up to date best practices. 
 
-If you use any of the above tools you must cite the papers and version of those tools. 
+If you use any of the above tools you must cite the papers and version of those tools. The authors of this repository are not responsible for the above tools.  
 
 If you use any custom python code from this repository, in the spirit of open science, you may do so freely. We simply request you cite the paper it was originally used in either: Buswell et al 2023 [doi](https://doi.org/10.3390/insects14050421) or Buswell et al 2024 doi incoming (in review).
 
