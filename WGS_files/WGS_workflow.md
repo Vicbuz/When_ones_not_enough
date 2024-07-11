@@ -1,6 +1,6 @@
 # Bioinformtics workflow for WGS processing.
 
-This workflow is the detailed methods for the paper Buswell et al 2024, Whole genome analyses of introgression in British and Irish Apis mellifera mellifera, DOI incoming.
+This workflow is the detailed methods for the paper Buswell et al 2024, Whole genome analyses of introgression in British and Irish Apis mellifera mellifera, in review DOI incoming.
 
 Some scripts were run in loops and some in parallel. Parallel works here are given as an example with one sample for clarity, loops remain.
 
