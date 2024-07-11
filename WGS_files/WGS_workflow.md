@@ -222,11 +222,10 @@ make a set of plink files for admixture:
 ```
 vcftools --vcf /home/vbuswell/WGS_work/chr_edited_WGS_1kb_thinned.vcf --plink --out /home/vbuswell/WGS_work/WGS_1kb_thinned
 ```
-
 make a bed file for admixture
-
+```
 plink --file /home/vbuswell/WGS_work/WGS_1kb_thinned  --make-bed --out /home/vbuswell/WGS_work/plink_final_filtered_WGS_1kb_thinned --chr-set 32 no-xy --allow-extra-chr
-
+```
 ## ADMIXTURE 
 
 Run admxiture from K=1 to K=10 and report the cv values to investigate the most appropriate Q value. 
