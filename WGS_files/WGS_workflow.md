@@ -15,7 +15,7 @@ Notes: follows the GATK4 Best Practice Workflow, using GATK version 4.1.9.0 and 
 
 Please note if you use any of the above tools you must cite the papers and version of those tools. 
 
-If you use any custom python code from this repository, in the spirit of open science you may do so freely. We request you simply please cite the paper it was originally used in: Buswell et al 2023 doi or Buswell et al 2024 doi
+If you use any custom python code from this repository, in the spirit of open science you may do so freely. We request you simply please cite the paper it was originally used in either: Buswell et al 2023 [doi](https://doi.org/10.3390/insects14050421) or Buswell et al 2024 doi incoming in review.
 
 ## Trimmomatic
 
