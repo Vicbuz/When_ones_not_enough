@@ -1,4 +1,4 @@
-# Bioinformtics workflow for WGS processing.
+# Bioinformtics pipeline for WGS processing.
 
 This workflow is the detailed methods for the paper Buswell et al 2024, Whole genome analyses of introgression in British and Irish Apis mellifera mellifera, in review DOI incoming.
 
