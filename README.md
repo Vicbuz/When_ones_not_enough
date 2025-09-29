@@ -1,7 +1,7 @@
 # When one's not enough
-Code used in two papers:  When one’s not enough: Colony pool-seq outperforms individual-based methods for assessing introgression in Apis mellifera subspecies foudn here https://www.mdpi.com/2075-4450/14/5/421 and Whole genome analyses of introgression and population structure in Apis mellifera mellifera (in review).
+Code used in two papers:  When one’s not enough: Colony pool-seq outperforms individual-based methods for assessing introgression in Apis mellifera subspecies foudn here https://www.mdpi.com/2075-4450/14/5/421 and Whole genome analyses of introgression and population structure in Apis mellifera mellifera foudn here https://doi.org/10.1080/00218839.2024.2411483.
 
-If you use any custom python code from this repository, in the spirit of open science, you may do so freely. We simply request you cite the paper it was originally used in either: Buswell et al 2023 doi or Buswell et al 2024 doi incoming (in review).
+If you use any custom python code from this repository, in the spirit of open science, you may do so freely. We simply request you cite the paper it was originally used in either: Buswell et al 2023 or Buswell et al 2024 (links above).
 
 All code is written in python 3.
 
